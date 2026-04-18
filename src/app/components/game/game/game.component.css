@@ -1,0 +1,66 @@
+.game-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.game-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* --- ESTILO DE LA MIRA (CUADRADO) --- */
+.crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  /* El transform es vital para el centro exacto */
+  transform: translate(-50%, -50%);
+  
+  /* Borde verde tipo neón/retro */
+  border: 2px solid #00ff00;
+  background-color: rgba(0, 255, 0, 0.1);
+  
+  /* Esto evita que la mira bloquee tus clicks de disparo */
+  pointer-events: none; 
+  z-index: 999;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+/* --- TU HUD ACTUAL --- */
+.hud {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  pointer-events: none; /* Para que el HUD no moleste al clickear */
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.controls {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Esto elimina las barras de scroll por completo */
+}
