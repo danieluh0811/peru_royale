@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GameStateService } from './core/services/game-state.service'; // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'peru-royale';
+
+  constructor(public gameState: GameStateService) {}
 }

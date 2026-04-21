@@ -1,8 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+/* Esto asegura que el canvas sea el dueño absoluto de la pantalla */
+canvas {
+    display: block;
+    outline: none;
+    cursor: none; /* Oculta el cursor nativo */
+}
+
 html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden; /* Esto elimina las barras de scroll por completo */
+    overflow: hidden; /* Evita que la página intente scrollear mientras mueves el mouse */
+    margin: 0;
+    padding: 0;
+    touch-action: none; /* Desactiva gestos raros en laptops con touch */
 }

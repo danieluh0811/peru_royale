@@ -1,0 +1,43 @@
+<div class="menu-overlay">
+  <div class="main-container">
+    <header>
+      <h1>🇵🇪 PERÚ ROYALE</h1>
+      <p>Alpha 0.1</p>
+    </header>
+
+    <div class="content-area">
+      <nav class="modes-nav">
+        <h3>MODOS</h3>
+        <button (click)="selectMode('dm')" [class.active]="mode === 'dm'">DEATHMATCH</button>
+        <button class="locked">SURVIVAL (🔒)</button>
+        <button class="locked">BASE DEFENSE (🔒)</button>
+      </nav>
+
+      <main class="details-panel" *ngIf="mode === 'dm' && !showRooms">
+        <h2>DEATHMATCH</h2>
+        <p>Todos contra todos. El primero en llegar a 20 bajas gana.</p>
+        
+        <div class="actions">
+          <button class="btn-primary" (click)="startGame()">CREAR PARTIDA</button>
+          <button class="btn-secondary" (click)="searchRooms()">BUSCAR SALAS</button>
+        </div>
+      </main>
+
+      <main class="details-panel" *ngIf="showRooms">
+        <h2>SALAS DISPONIBLES</h2>
+        <div *ngIf="rooms.length === 0">No hay salas disponibles.</div>
+        <div *ngFor="let room of rooms" class="room-item">
+          <p>Sala: {{ room.id }} - Jugadores: {{ room.players }}</p>
+          <button (click)="joinRoom(room.id)">UNIRSE</button>
+        </div>
+        <div class="actions">
+          <button class="btn-secondary" (click)="showRooms = false">VOLVER</button>
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <div class="player-info">Jugador: {{ playerId }}</div>
+    </footer>
+  </div>
+</div>

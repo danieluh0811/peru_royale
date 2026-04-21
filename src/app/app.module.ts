@@ -1,19 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common'; // <--- 1. IMPORTANTE: Agrega esta línea
 
 import { AppComponent } from './app.component';
 import { GameComponent } from './components/game/game/game.component';
-// 1. IMPORTA EL ARCHIVO DE RUTAS AQUÍ
 import { AppRoutingModule } from './app-routing.module'; 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { MenuComponent } from './components/game/menu/menu/menu.component';
+
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameComponent
+    GameComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule // 2. AGRÉGALO A LA LISTA DE IMPORTS
+    CommonModule, // <--- 2. Y AGREGA ESTA AQUÍ
+    AppRoutingModule,
+    SocketIoModule.forRoot(config) 
   ],
   providers: [],
   bootstrap: [AppComponent]
